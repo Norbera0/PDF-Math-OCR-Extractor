@@ -6,7 +6,7 @@ It is optimized for scanned documents with **watermarks** or **faded backgrounds
 ---
 
 ## Features
-- Extracts **regular text** and **LaTeX formulas** from each page of `pdf2mathtext.pdf`.
+- Extracts **regular text** and **LaTeX formulas** from each page of a `.pdf` file.
 - Handles **faded backgrounds** and **watermarks** using adaptive thresholding (OpenCV).
 - Saves extracted text with **page markers**.
 - Displays **progress information** during processing.
