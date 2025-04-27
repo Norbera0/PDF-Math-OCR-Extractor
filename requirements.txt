@@ -1,0 +1,6 @@
+pix2text
+PyMuPDF
+numpy
+opencv-python
+Pillow
+argparse 
