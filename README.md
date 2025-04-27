@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 ### Basic usage
 ```bash
-python OCR_data.py --pdf_path "path/to/your.pdf"
+python pdf2mathtext.py --pdf_path "path/to/your.pdf"
 ```
 
 ### Windows Unicode Fix
