@@ -43,5 +43,3 @@ Uncomment the indicated lines in `OCR_data.py` to save preprocessed images for e
 ## Output
 - Extracted text is saved in the `extracted_text` directory, with page markers.
 
-## License
-Specify your license here (e.g., MIT, Apache 2.0, or remove this section if not needed). 
