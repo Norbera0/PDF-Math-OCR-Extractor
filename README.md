@@ -1,47 +1,68 @@
-# PDF Engineering Exam OCR Extractor
+# PDF2MathText
 
-This repository contains a single script, `OCR_data.py`, which uses [pix2text](https://github.com/breezedeus/pix2text) and PyMuPDF to extract text and mathematical formulas from engineering exam PDFs. The script is designed to handle documents with watermarks or faded backgrounds using OpenCV preprocessing.
+This repository contains a script, `OCR_data.py`, which extracts **text** and **mathematical formulas** from engineering exam PDFs using **Pix2Text (P2T)** and **PyMuPDF**.  
+It is optimized for scanned documents with **watermarks** or **faded backgrounds**.
+
+---
 
 ## Features
-- Extracts both regular text and formulas from each page of a PDF
-- Handles faded backgrounds and watermarks with adaptive thresholding
-- Saves extracted text with page markers
-- Shows progress information during processing
-- (Optional) Can save preprocessed images for inspection
+- 📄 Extracts **regular text** and **LaTeX formulas** from each page of `pdf2mathtext.pdf`.
+- 🎯 Handles **faded backgrounds** and **watermarks** using adaptive thresholding (OpenCV).
+- 📝 Saves extracted text with **page markers**.
+- ⏳ Displays **progress information** during processing.
+- 🛠️ (Optional) Saves **preprocessed images** for inspection.
 
-## Requirements
-- Python 3.8+
-- [pix2text](https://github.com/breezedeus/pix2text)
-- PyMuPDF (`fitz`)
-- numpy
-- opencv-python
-- Pillow
-- argparse
+---
 
-Install all dependencies with:
-```bash
-pip install -r requirements.txt
-```
+## About Pix2Text (P2T)
+
+[Pix2Text (P2T)](https://github.com/breezedeus/pix2text) is a free and open-source Python alternative to Mathpix, capable of recognizing:
+- Layouts
+- Tables
+- Images
+- Text
+- Mathematical formulas  
+and **integrating them into a Markdown format**.  
+It can also convert entire scanned PDFs into structured Markdown.
+
+**P2T integrates the following models:**
+- **Layout Analysis Model:** `breezedeus/pix2text-layout`
+- **Table Recognition Model:** `breezedeus/pix2text-table-rec`
+- **Text Recognition Engines:**
+  - [CnOCR](https://github.com/breezedeus/cnocr)  
+  - [EasyOCR](https://github.com/JaidedAI/EasyOCR) for 80+ other languages
+- **Mathematical Formula Detection Model (MFD):** `breezedeus/pix2text-mfd`
+- **Mathematical Formula Recognition Model (MFR):** `breezedeus/pix2text-mfr`
+
+> We appreciate the contributions of the open-source community that made these models possible!
+
+---
+
+## How It Works
+
+![Data Flow](data-flow.jpg)
+
+1. **Layout Analysis** identifies the structure of each PDF page.
+2. **Table Recognition**, **Text OCR**, and **Math Formula Recognition** extract their respective contents.
+3. **Sorting, Merging, and Post-processing** refine the output.
+4. **Markdown** output is generated.
+
+---
 
 ## Usage
 
-### Basic usage
+1. Place `pdf2mathtext.pdf` inside the project folder.
+2. Edit `OCR_data.py` if you want to change any settings.
+3. Run:
+
 ```bash
-python OCR_data.py --pdf_path "path/to/your.pdf"
+python OCR_data.py
 ```
 
-### Windows Unicode Fix
-If you encounter a `UnicodeDecodeError` on Windows, run:
-```powershell
-$env:PYTHONUTF8=1
-python OCR_data.py --pdf_path "path/to/your.pdf"
-```
+Extracted text and LaTeX formulas will be saved to the output folder.
 
-### Optional: Save Preprocessed Images
-Uncomment the indicated lines in `OCR_data.py` to save preprocessed images for each page in a `preprocessed_images` folder.
-
-## Output
-- Extracted text is saved in the `extracted_text` directory, with page markers.
+---
 
 ## License
-Specify your license here (e.g., MIT, Apache 2.0, or remove this section if not needed). 
+
+[MIT License](LICENSE) 
