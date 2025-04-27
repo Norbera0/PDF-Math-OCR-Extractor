@@ -56,13 +56,20 @@ It can also convert entire scanned PDFs into structured Markdown.
 3. Run:
 
 ```bash
+<<<<<<< HEAD
 python OCR_data.py
+=======
+python pdf2mathtext.py --pdf_path "path/to/your.pdf"
+>>>>>>> 1a63de866fd42884f01fff50d2c251f1a6f2e35e
 ```
 
 Extracted text and LaTeX formulas will be saved to the output folder.
 
 ---
 
+<<<<<<< HEAD
 ## License
 
 [MIT License](LICENSE) 
+=======
+>>>>>>> 1a63de866fd42884f01fff50d2c251f1a6f2e35e
